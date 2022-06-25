@@ -4,7 +4,8 @@
 We have 2 variables. fr and d. fr is a list of strings and d is a dictionary with email
 addresses as keys and numbers as values (numbers in string format).
 Write code to replace the email address in each of the strings in the fr list with
-the associated value of that email looked up from the dictionary d.
+the associated value of that email looked up from the dictionary.
+
 If the dictionary does not contain the email found in the list, add a new entry
 in the dictionary for the email found in the fr list. The value for this new email key
 will be the next highest value number in the dictionary in string format.
@@ -23,26 +24,38 @@ Value of d:
 
 # Don't manually change fr and d.
 fr = [
-'7@comp1.COM|4|11|GDSPV',
-'7@comp1.COM|16|82|GDSPV',
-'13@comp1.COM|12|82|GDSPV',
-'26@comp1.COM|19|82|GDSPV'
+    '7@comp1.COM|4|11|GDSPV',
+    '7@comp1.COM|16|82|GDSPV',
+    '13@comp1.COM|12|82|GDSPV',
+    '26@comp1.COM|19|82|GDSPV'
 ]
 
-d= {
-'7@comp1.COM': '199',
-'8@comp4.COM': '200',
-'13@comp1.COM': '205'
+d = {
+    '7@comp1.COM': '199',
+    '8@comp4.COM': '200',
+    '13@comp1.COM': '205'
 }
 
 
 # Your Code Below:
 # --------------------------------------
 
+d_max = int(max(d.values()))
+fr_result = []
 
+for i in range(len(fr)):
+    fr_list = fr[i].split('|')
+    fr_email = fr_list[0]
 
+    if fr_email in d:
+        fr_list[0] = d.get(fr_email)
+    else:
+        d_max += 1
+        d[fr_email] = str(d_max)
 
+    fr_result.append('|'.join(fr_list))
 
+fr = fr_result
 
 # don't change the lines below:
 # --------------------------------------
@@ -50,44 +63,6 @@ print("Value of fr: ")
 print(fr)
 print("Value of d:")
 print(d)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Solution:

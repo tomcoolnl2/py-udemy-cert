@@ -18,7 +18,16 @@ last2('axxxaaxx') → 2
 
 # Your Code Below:
 
+def last2(str):
+    count = 0
+    needle = str[-2:len(str)]
+    haystack = str[:-2]
 
+    for i in range(len(haystack)):
+        sub = str[i:i + 2]
+        if sub == needle:
+            count = count + 1
+    return count
 
 print(last2('hixxhi')) #→ 1
 print(last2('xaxxaxaxx')) #→ 1

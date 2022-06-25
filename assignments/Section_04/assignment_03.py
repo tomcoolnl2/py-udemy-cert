@@ -13,7 +13,17 @@ sequence([]) → False
 
 # Your Code Below:
 
+def sequence(num_list=[], seq=[1, 2, 3]): 
+    for i in range(len(num_list) - 2):
+        if num_list[i] == seq[0] and num_list[i + 1] == seq[1] and num_list[i + 2] == seq[2]:
+            return True
+    return False
 
+print(sequence([1, 1, 2, 3, 1]))
+print(sequence([1, 1, 2, 4, 1]))
+print(sequence([1, 1, 2, 1, 2, 3]))
+print(sequence([1, 2]))
+print(sequence([]))
 
 
 

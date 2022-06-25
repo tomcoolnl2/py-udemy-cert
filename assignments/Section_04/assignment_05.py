@@ -15,11 +15,10 @@ first3([1, 2, 3, 4, 5]) → False
 
 # Your Code Below:
 
-
-
-
-
-
+def first3(num_list):
+    if 6 in num_list and num_list.index(6) < 4:
+        return True
+    return False
 
 print(first3([1,2,6,3,0,0])) # true
 print(first3([1,2,3,3,0,6])) # false

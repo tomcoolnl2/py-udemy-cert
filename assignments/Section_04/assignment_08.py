@@ -16,20 +16,18 @@ sum78([1, 1, 7, 8, 2]) → 4
 
 #Your Code Below:
 
+def sum78(num_list):
+    result = 0
+    skip_start = 7 in num_list and num_list.index(7)
+    skip_end = 8 in num_list and num_list.index(8) + 1
 
+    if skip_start and skip_end:
+        del num_list[skip_start:skip_end]
 
-
-
-
-
-
-
-
-
-
-
-
-
+    for i in range(len(num_list)):
+        result += num_list[i]
+    
+    return result
 
 
 print(sum78([1, 2, 2])) #→ 5

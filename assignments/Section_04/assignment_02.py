@@ -20,10 +20,14 @@ Example:
 # Your Code Below:
 
 
+def pay_extra(working, hour):
+    return working and (hour < 8 or hour > 20)
 
+result = pay_extra(True, 11)
+# result = pay_extra(False, 5)
+# result = pay_extra(True, 6)
 
-
-
+print(result)
 
 
 
