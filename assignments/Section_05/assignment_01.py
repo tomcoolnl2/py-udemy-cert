@@ -19,7 +19,9 @@ from abc import ABC, abstractmethod
 
 class Animal(ABC):
     
-    def __init__(self) -> None:
+    def __init__(self, age, name) -> None:
+        self.age = age
+        self.name = name
         print(f'{self.type()} constructed!')
         
     @abstractmethod
@@ -30,10 +32,10 @@ class Animal(ABC):
     def eat(self) -> None:
         print(f'{self.type()} {self.name} is eating...')
 
-    def name(self):
+    def getName(self):
          print(f'{self.type()}\'s name is {self.name}')
 
-    def age(self):
+    def getAge(self):
          print(f'{self.type()} {self.name}\'s age is {self.age}')
 
     def type(self):
@@ -42,11 +44,9 @@ class Animal(ABC):
 
 class Dog(Animal):
     def __init__(self, age, name) -> None:
-        Animal.__init__(self)
-        self.age = age
-        self.name = name
-        Animal.name(self)
-        Animal.age(self)
+        Animal.__init__(self, age, name)
+        Animal.getName(self)
+        Animal.getAge(self)
 
     def move(self) -> None:
         Animal.move(self)
@@ -57,11 +57,9 @@ class Dog(Animal):
 
 class Fish(Animal):
     def __init__(self, age, name) -> None:
-        Animal.__init__(self)
-        self.age = age
-        self.name = name
-        Animal.name(self)
-        Animal.age(self)
+        Animal.__init__(self, age, name)
+        Animal.getName(self)
+        Animal.getAge(self)
 
     def move(self) -> None:
         Animal.move(self, 'swimming')
@@ -72,11 +70,9 @@ class Fish(Animal):
 
 class Bird(Animal):
     def __init__(self, age, name) -> None:
-        Animal.__init__(self)
-        self.age = age
-        self.name = name
-        Animal.name(self)
-        Animal.age(self)
+        Animal.__init__(self, age, name)
+        Animal.getName(self)
+        Animal.getAge(self)
 
     def move(self) -> None:
         Animal.move(self, 'flying')
