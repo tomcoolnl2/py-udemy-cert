@@ -28,29 +28,6 @@ print(first3([])) # false
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Solution:
 
 # def first3(numbers):
