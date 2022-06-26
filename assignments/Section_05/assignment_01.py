@@ -13,27 +13,40 @@ dog, fish and bird and make them eat and move.
 
 """
 # Your Code Below:
-from enum import Enum
+
 from abc import ABC, abstractmethod
 
 
 class Animal(ABC):
     
     def __init__(self) -> None:
-        print(f'{type(self).__name__} constructed!')
-
+        print(f'{self.type()} constructed!')
+        
     @abstractmethod
     def move(self, move = 'walking') -> None:
-        print(f'{type(self).__name__} {move}...')
+        print(f'{self.type()} {self.name} is {move}...')
     
     @abstractmethod
     def eat(self) -> None:
-        print(f'{type(self).__name__} eating...')
+        print(f'{self.type()} {self.name} is eating...')
+
+    def name(self):
+         print(f'{self.type()}\'s name is {self.name}')
+
+    def age(self):
+         print(f'{self.type()} {self.name}\'s age is {self.age}')
+
+    def type(self):
+        return type(self).__name__
 
 
 class Dog(Animal):
-    def __init__(self) -> None:
+    def __init__(self, age, name) -> None:
         Animal.__init__(self)
+        self.age = age
+        self.name = name
+        Animal.name(self)
+        Animal.age(self)
 
     def move(self) -> None:
         Animal.move(self)
@@ -43,8 +56,12 @@ class Dog(Animal):
 
 
 class Fish(Animal):
-    def __init__(self) -> None:
+    def __init__(self, age, name) -> None:
         Animal.__init__(self)
+        self.age = age
+        self.name = name
+        Animal.name(self)
+        Animal.age(self)
 
     def move(self) -> None:
         Animal.move(self, 'swimming')
@@ -54,8 +71,12 @@ class Fish(Animal):
 
 
 class Bird(Animal):
-    def __init__(self) -> None:
+    def __init__(self, age, name) -> None:
         Animal.__init__(self)
+        self.age = age
+        self.name = name
+        Animal.name(self)
+        Animal.age(self)
 
     def move(self) -> None:
         Animal.move(self, 'flying')
@@ -64,15 +85,15 @@ class Bird(Animal):
         Animal.eat(self)
 
 
-dog = Dog()
+dog = Dog(12, 'Lassie')
 dog.move()
 dog.eat()
 
-fish = Fish()
+fish = Fish(1, 'Nemo')
 fish.move()
 fish.eat()
 
-bird = Bird()
+bird = Bird(2, 'Piet')
 bird.move()
 bird.eat()
 
