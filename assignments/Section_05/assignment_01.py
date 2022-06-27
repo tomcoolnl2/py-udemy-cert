@@ -29,8 +29,8 @@ class Animal(ABC):
         print(f'{self.type()} {self.name} is {move}...')
     
     @abstractmethod
-    def eat(self) -> None:
-        print(f'{self.type()} {self.name} is eating...')
+    def eat(self, what = '...') -> None:
+        print(f'{self.type()} {self.name} is eating {what}')
 
     def getName(self):
          print(f'{self.type()}\'s name is {self.name}')
@@ -52,7 +52,7 @@ class Dog(Animal):
         Animal.move(self)
     
     def eat(self) -> None:
-        Animal.eat(self)
+        Animal.eat(self, 'dog food')
 
 
 class Fish(Animal):
@@ -65,7 +65,7 @@ class Fish(Animal):
         Animal.move(self, 'swimming')
 
     def eat(self) -> None:
-        Animal.eat(self)
+        Animal.eat(self, 'seaweed')
 
 
 class Bird(Animal):
@@ -78,7 +78,7 @@ class Bird(Animal):
         Animal.move(self, 'flying')
 
     def eat(self) -> None:
-        Animal.eat(self)
+        Animal.eat(self, 'seeds')
 
 
 dog = Dog(12, 'Lassie')
